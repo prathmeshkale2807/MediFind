@@ -1,0 +1,1 @@
+import express from "express";import {authenticateToken} from "../middleware/authMiddleware.js";import {getDoctorProfile,addDoctorReview} from "../controllers/reviewController.js";const router=express.Router();router.get("/doctors/:id/profile",getDoctorProfile);router.post("/doctors/:doctorId/reviews",authenticateToken,addDoctorReview);export default router;

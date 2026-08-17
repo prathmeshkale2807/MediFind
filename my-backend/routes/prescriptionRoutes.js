@@ -1,0 +1,1 @@
+import express from "express";import {authenticateToken} from "../middleware/authMiddleware.js";import {createPrescription,getMyPrescriptions} from "../controllers/prescriptionController.js";const router=express.Router();router.get("/my",authenticateToken,getMyPrescriptions);router.post("/",authenticateToken,createPrescription);export default router;
