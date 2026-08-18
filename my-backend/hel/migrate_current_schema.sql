@@ -33,6 +33,9 @@ ALTER TABLE users
 
 ALTER TABLE users
     ADD COLUMN IF NOT EXISTS reset_otp_expires_at TIMESTAMP;
+-- Fix missing bed timestamp column
+ALTER TABLE beds
+    ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 -- Verify the doctor fee/verification columns after migration.
 SELECT doctor_id, full_name, email, fee, email_verified
