@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+  import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
   const SERVER_ROOT = API_BASE_URL.replace(/\/api\/?$/, '')
 
@@ -386,6 +386,7 @@ sendContactMessage: (payload) =>
 }
 
 export { API_BASE_URL }
+
 const getImageUrl = (image) => {
   if (!image) return null
 
@@ -399,17 +400,5 @@ const getImageUrl = (image) => {
   }
 
   // Backend relative image URL
-  const getImageUrl = (image) => {
-  if (!image) return null
-
-  if (
-    image.startsWith('http://') ||
-    image.startsWith('https://') ||
-    image.startsWith('data:')
-  ) {
-    return image
-  }
-
   return `${SERVER_ROOT}${image.startsWith('/') ? '' : '/'}${image}`
-}
 }
